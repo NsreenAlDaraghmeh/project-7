@@ -1,0 +1,56 @@
+body
+{
+    background-color: black !important;
+}
+#logindiv
+{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+#formdiv
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+#loginbtn
+{
+    width: 200px;
+}
+.card
+{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-check
+{
+    width: 100%;
+}
+form
+{
+    font-weight: bold;
+    color: white;
+    width: 30%;
+}
+input
+{
+    opacity: 0.8;
+    color: black !important;
+}
+input::placeholder
+{ 
+    font-weight: bolder;
+    color:black !important;
+}
+.link
+{
+    text-decoration: underline !important;
+    font-weight: bold;
+    color: wheat;
+}

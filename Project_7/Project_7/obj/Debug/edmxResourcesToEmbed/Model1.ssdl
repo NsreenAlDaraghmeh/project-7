@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project7Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Adress" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="IDbooking" />
+    </Key>
+    <Property Name="IDbooking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numpeople" Type="int" />
+    <Property Name="Numchild" Type="int" />
+    <Property Name="DateFrom" Type="date" />
+    <Property Name="States" Type="binary" MaxLength="1" />
+    <Property Name="DateTo" Type="date" />
+    <Property Name="IDuser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IDroom" Type="int" />
+    <Property Name="Country" Type="varchar" MaxLength="250" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CategoryRooms">
+    <Key>
+      <PropertyRef Name="IDcategory" />
+    </Key>
+    <Property Name="IDcategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Imgcategory" Type="varchar" MaxLength="255" />
+    <Property Name="Namecategory" Type="varchar" MaxLength="255" />
+    <Property Name="discriptioncategory" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="checkout">
+    <Key>
+      <PropertyRef Name="IDcheckout" />
+    </Key>
+    <Property Name="IDcheckout" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateFrom" Type="date" />
+    <Property Name="DateTo" Type="date" />
+    <Property Name="States" Type="bit" />
+    <Property Name="IDuser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IDroom" Type="int" />
+    <Property Name="Datecheckout" Type="date" />
+    <Property Name="Totalprice" Type="float" />
+  </EntityType>
+  <EntityType Name="RateRooms">
+    <Key>
+      <PropertyRef Name="IDrate" />
+    </Key>
+    <Property Name="IDrate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDroom" Type="int" />
+    <Property Name="IDuser" Type="nvarchar" MaxLength="128" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SingleRooms">
+    <Key>
+      <PropertyRef Name="IDroom" />
+    </Key>
+    <Property Name="IDroom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roomNumber" Type="varchar" MaxLength="255" />
+    <Property Name="discriptionRoom" Type="varchar" MaxLength="255" />
+    <Property Name="quntity" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="ImgRoom1" Type="varchar" MaxLength="255" />
+    <Property Name="ImgRoom2" Type="varchar" MaxLength="255" />
+    <Property Name="ImgRoom3" Type="varchar" MaxLength="255" />
+    <Property Name="ImgRoom4" Type="varchar" MaxLength="255" />
+    <Property Name="IDRate" Type="int" />
+    <Property Name="IDcategory" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Booking__IDroom__7E37BEF6">
+    <End Role="SingleRooms" Type="Self.SingleRooms" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SingleRooms">
+        <PropertyRef Name="IDroom" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="IDroom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SingleRoo__IDcat__797309D9">
+    <End Role="CategoryRooms" Type="Self.CategoryRooms" Multiplicity="0..1" />
+    <End Role="SingleRooms" Type="Self.SingleRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryRooms">
+        <PropertyRef Name="IDcategory" />
+      </Principal>
+      <Dependent Role="SingleRooms">
+        <PropertyRef Name="IDcategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SingleRoo__IDRat__7A672E12">
+    <End Role="RateRooms" Type="Self.RateRooms" Multiplicity="0..1" />
+    <End Role="SingleRooms" Type="Self.SingleRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RateRooms">
+        <PropertyRef Name="IDrate" />
+      </Principal>
+      <Dependent Role="SingleRooms">
+        <PropertyRef Name="IDRate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="IDuser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkout_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="checkout">
+        <PropertyRef Name="IDuser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkout_SingleRooms">
+    <End Role="SingleRooms" Type="Self.SingleRooms" Multiplicity="0..1" />
+    <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SingleRooms">
+        <PropertyRef Name="IDroom" />
+      </Principal>
+      <Dependent Role="checkout">
+        <PropertyRef Name="IDroom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RateRooms_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="RateRooms" Type="Self.RateRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RateRooms">
+        <PropertyRef Name="IDuser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project7ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryRooms" EntityType="Self.CategoryRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="checkout" EntityType="Self.checkout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RateRooms" EntityType="Self.RateRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SingleRooms" EntityType="Self.SingleRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Booking__IDroom__7E37BEF6" Association="Self.FK__Booking__IDroom__7E37BEF6">
+      <End Role="SingleRooms" EntitySet="SingleRooms" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SingleRoo__IDcat__797309D9" Association="Self.FK__SingleRoo__IDcat__797309D9">
+      <End Role="CategoryRooms" EntitySet="CategoryRooms" />
+      <End Role="SingleRooms" EntitySet="SingleRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SingleRoo__IDRat__7A672E12" Association="Self.FK__SingleRoo__IDRat__7A672E12">
+      <End Role="RateRooms" EntitySet="RateRooms" />
+      <End Role="SingleRooms" EntitySet="SingleRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_AspNetUsers" Association="Self.FK_Booking_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkout_AspNetUsers" Association="Self.FK_checkout_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="checkout" EntitySet="checkout" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkout_SingleRooms" Association="Self.FK_checkout_SingleRooms">
+      <End Role="SingleRooms" EntitySet="SingleRooms" />
+      <End Role="checkout" EntitySet="checkout" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RateRooms_AspNetUsers" Association="Self.FK_RateRooms_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="RateRooms" EntitySet="RateRooms" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

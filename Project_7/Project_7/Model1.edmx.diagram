@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a1ba65da4314e39850b11d8d2238d04" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="project7Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.AspNetRole" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.AspNetUser" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.Booking" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.CategoryRoom" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.RateRoom" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.SingleRoom" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="project7Model.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="project7Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK_Booking_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK_RateRooms_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK__Booking__IDroom__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK__SingleRoo__IDcat__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.FK__SingleRoo__IDRat__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="project7Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="project7Model.checkout" Width="1.5" PointX="9.75" PointY="10.875" />
+        <AssociationConnector Association="project7Model.FK_checkout_AspNetUsers" />
+        <AssociationConnector Association="project7Model.FK_checkout_SingleRooms" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
