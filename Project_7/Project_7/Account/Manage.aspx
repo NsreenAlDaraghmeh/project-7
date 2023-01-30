@@ -24,7 +24,12 @@
     #MainContent_FileUpload1{
         color:white;
     }   
-
+    #MainContent_profile table{
+   
+    }
+    .tbl{
+        border:1px solid #c5a880
+    }
    </style>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
@@ -46,13 +51,13 @@
 
           <ul class="nav nav-pills nav-stacked" style="display: block;">
               <li class="active"><a href="Manage.aspx"> <i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
+              <li><a href="#"> <i class="fa fa-calendar"></i> <asp:Button ID="Button4" runat="server" Text=" Recent Activity "  CssClass="editt" OnClick="Button4_Click" /></a></li>
               <li><a href="#"> <i class="fa fa-edit"></i>  <asp:Button ID="Button3" runat="server" Text=" Edit profile "  CssClass="editt" OnClick="Button3_Click"/></a></li>
           </ul>
       </div>
   </div>
-  <div class="profile-info col-md-9">
-      <div class="panel">
+  <div class="profile-info col-md-9" >
+      <div class="panel" id="com" runat="server">
   
               <textarea placeholder="Write your feedback ?" runat="server" id="feedback" rows="2" class="form-control"></textarea>
          
@@ -80,12 +85,13 @@
               </ul>--%>
           </footer>
       </div>
-      <div class="panel">
+      <div class="panel" id="profile" runat="server">
+
           <div class="bio-graph-heading" style="/*background-color:#c5a880 ;*/ color:#c5a880">
               <asp:Label ID="feeds" runat="server" Text=""></asp:Label>
           </div>
           <div class="panel-body bio-graph-info">
-              <h1>Your Information </h1>
+             <h1>Your Information </h1>
               <div class="row" id="row2" runat="server">
                   <div class="bio-row">
                       <p><span>User Name :</span>
@@ -156,10 +162,10 @@
 
                   </div>
                          </div>
-
             
 
               </div>
+                                <asp:GridView ID="GridView1" runat="server"></asp:GridView>
 
 
 
@@ -225,10 +231,10 @@
                   </div>
               </div>
           </div>--%>
-
+          
   </div>
-                          <%--<div id="GridContainer" runat="server"></div>--%>
-      </div>
+        </div>                  <%--<div id="GridContainer" runat="server"></div>--%>
+      
 </div>
 </div>
     <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;786c5de60e322c5d&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>

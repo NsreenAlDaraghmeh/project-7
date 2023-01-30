@@ -1,4 +1,5 @@
 ﻿using AjaxControlToolkit.Bundling;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,11 @@ namespace Project_7.admin.darkpan_1._0._0
         project7Entities3 p = new project7Entities3();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Context.User.IsInRole("Admin"))
+            {
+                Response.Redirect("../../Default.aspx");
+            }
+           
             var cancelbook = from b in p.checkouts
                              select new
                              {
@@ -79,4 +85,9 @@ namespace Project_7.admin.darkpan_1._0._0
             }
            
         }
-}   }
+
+        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+    }   }

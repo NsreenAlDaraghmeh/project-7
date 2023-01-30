@@ -55,14 +55,14 @@ namespace Project_7
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "840338767068672",
+               appSecret: "74a40f5f4be93936966b429f63fbb995");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "504461241574-1o9rmb1p9nnbu5isfton76vica2j9s9s.apps.googleusercontent.com",
+            //    ClientSecret = "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"
             //});
         }
     }

@@ -18,29 +18,35 @@ namespace Project_7.admin.darkpan_1._0._0
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Context.User.IsInRole("Admin"))
+            {
+                Response.Redirect("../../Default.aspx");
+            }
             if (Request.QueryString["id"] != null)
             {
+         
                 int qid = Convert.ToInt32(Request.QueryString["id"].ToString());
                 var cancelbook = from b in p.Bookings
                                  where b.IDbooking==qid
-                                 select b;
+                                 select new
                 {
 
-                    //b.IDbooking,
-                    //b.Numpeople,
-                    //b.AspNetUser.Name,
-                    //b.Numchild,
-                    //b.DateFrom,
-                    //b.DateTo,
-                    //b.AspNetUser.PhoneNumber,
-                    //b.SingleRoom.price
-                };
+                                     b.IDbooking,
+                                     b.Numpeople,
+                                     b.AspNetUser.Name,
+                                     b.Numchild,
+                                     b.DateFrom,
+                                     b.DateTo,
+                                     b.AspNetUser.PhoneNumber,
+                                     b.SingleRoom.price
+                                 };
 
                 DetailsView2.DataSource = cancelbook.ToList();
                 DetailsView2.DataBind();
 
                 mpe.Show();
             }
+           
             if (!IsPostBack)
             {
 
@@ -48,7 +54,7 @@ namespace Project_7.admin.darkpan_1._0._0
                 roomedit.Visible = false;
                 GridView2.Visible = false;
                 editform.Visible = false;
-
+         
 
                 dashboard1.Attributes.Remove("class");
                 dashboard1.Attributes.Add("class", "nav-item nav-link active");
@@ -57,6 +63,7 @@ namespace Project_7.admin.darkpan_1._0._0
                 AdminName.InnerText = $"{Context.User.Identity.GetUserName()}";
                 if (Request.QueryString["cancelid"] != null)
                 {
+                 
                     //divdetail.Attributes.Add("style", "display:grid;justify-content:center;position:absolute;width:100%;height:100%;top:0;left:0;");
 
                     int qid = Convert.ToInt32(Request.QueryString["cancelid"].ToString());
@@ -76,7 +83,9 @@ namespace Project_7.admin.darkpan_1._0._0
 
                     DetailsView1.DataSource = cancelbook.ToList();
                     DetailsView1.DataBind();
-
+         
+                    GridView1.Visible = false;
+                   
                 }
 
 
@@ -102,6 +111,7 @@ namespace Project_7.admin.darkpan_1._0._0
                     GridView1.DataSource = book.ToList();
                     GridView1.DataBind();
                     btndelete.Visible = false;
+                
 
                 }
 
@@ -110,11 +120,12 @@ namespace Project_7.admin.darkpan_1._0._0
 
 
                 //-------------------Edit----------------------------------------------------//
+ 
+
+               
 
 
-
-
-                if (Request.QueryString["editid"] != null)
+                    if (Request.QueryString["editid"] != null)
                 {
                     editform.Visible = true;
                     //TableEdit.Attributes.Remove("style");
@@ -147,6 +158,7 @@ namespace Project_7.admin.darkpan_1._0._0
                     GridView1.DataSource = sel.ToList();
                     GridView1.DataBind();
 
+                 
 
 
 
@@ -171,7 +183,7 @@ namespace Project_7.admin.darkpan_1._0._0
                     //editform.Visible = false;
                     GridView1.DataSource = book.ToList();
                     GridView1.DataBind();
-
+                 
 
                 }
 
@@ -205,7 +217,7 @@ namespace Project_7.admin.darkpan_1._0._0
                     discriptionroom.Value = record.discriptionRoom;
                     Quntity.Value = Convert.ToString(record.quntity);
                     price.Value = Convert.ToString(record.price);
-                 
+                    SpanTitle.InnerText = "Edit Room";
 
                 }
 
@@ -244,6 +256,8 @@ namespace Project_7.admin.darkpan_1._0._0
                     {
                         GridView2.Visible = false;
                         GridView1.Visible = true;
+                        SpanTitle.InnerText = "Bookings";
+
                     }
                     if (Request.QueryString["editroomid"] == null)
                     {
@@ -251,12 +265,35 @@ namespace Project_7.admin.darkpan_1._0._0
                     }
                     if (Request.QueryString["tab"] == "Room1")
                     {
+                        SpanTitle.InnerText = "Rooms";
                         GridView2.Visible = true;
                         GridView1.Visible = false;
                     }
                     if (Request.QueryString["editroomid"] != null)
                     {
                         GridView2.Visible = false;
+                    }
+
+                    if (Request.QueryString["tab"] == "users")
+                    {
+                        var users1 = from b in p.AspNetUsers
+                                     select new
+                        {
+
+                            b.Name,
+                            b.Email,
+                            b.PhoneNumber,
+                            b.Adress,
+                            b.image,
+                           
+
+                        };
+
+                        //editform.Visible = false;
+                        SpanTitle.InnerText = "Users";
+                        GridView3.DataSource = users1.ToList();
+                        GridView3.DataBind();
+
                     }
 
                 }
@@ -279,6 +316,8 @@ namespace Project_7.admin.darkpan_1._0._0
 
                     GridView1.DataSource = book.ToList();
                     GridView1.DataBind();
+                    SpanTitle.InnerText = "Bookings";
+
                 }
 
 
@@ -294,6 +333,8 @@ namespace Project_7.admin.darkpan_1._0._0
                 //var room = p.Bookings.Find(room);
                 Label1.Text = (from bnum in p.Bookings select bnum.IDbooking).Count().ToString();
                 Label2.Text=(from ch in p.checkouts select ch.Totalprice).Sum().ToString();
+                Label5.Text= p.AspNetUsers.Count().ToString();
+                Label6.Text= (from R in p.SingleRooms select R.quntity).Sum().ToString();
 
 
             }
@@ -327,6 +368,8 @@ namespace Project_7.admin.darkpan_1._0._0
             record.quntity = Convert.ToInt32(Quntity.Value);
             record.price = Convert.ToInt32(price.Value);
             string image = "";
+    
+          
             if (formFile1.HasFile)
             {
                 image = "/images/" + formFile1.FileName;
@@ -379,9 +422,14 @@ namespace Project_7.admin.darkpan_1._0._0
 
             p.Bookings.Remove(c);
             p.SaveChanges();
-            Response.Redirect("dashboard.aspx");
-        }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", $"pass(\"\" ,\"Please log in first\");", true);
 
+            //Response.Redirect("dashboard.aspx");
+        }
+        protected void cancleCheckout(object sender, EventArgs e)
+        {
+            mpe.Hide();
+        }
         protected void checkout_Click(object sender, EventArgs e)
         {
 
@@ -608,7 +656,23 @@ namespace Project_7.admin.darkpan_1._0._0
 
         }
 
-       
+        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        protected void GridView3_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var imagePath = (e.Row.DataItem as dynamic).image;
+                var image = new Image();
+                image.ImageUrl = "../../" + imagePath;
+                image.Height = 200;
+                image.Width = 200;
+                e.Row.Cells[4].Controls.Add(image);
+            }
+        }
     }
 
 }

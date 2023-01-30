@@ -160,6 +160,7 @@
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\imageslubna.jpeg" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
@@ -246,7 +247,6 @@
     <Content Include="fonts\flaticon\font\Flaticon.svg" />
     <Content Include="fonts\flaticon\license\license.html" />
     <Content Include="Global.asax" />
-    <Content Include="Account\Web.config" />
     <Content Include="images\bg_1.jpg" />
     <Content Include="images\bg_2.jpg" />
     <Content Include="images\bg_3.jpg" />
@@ -379,6 +379,7 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Account\Web.config" />
     <Content Include="admin\darkpan-1.0.0\lib\owlcarousel\LICENSE" />
     <Content Include="admin\darkpan-1.0.0\lib\waypoints\links.php" />
     <Content Include="admin\darkpan-1.0.0\scss\bootstrap.scss" />

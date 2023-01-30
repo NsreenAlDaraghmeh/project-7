@@ -3,10 +3,15 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <style>
+        body{
+            overflow-x:hidden;
+        }
+    </style>
      <div class="hero-wrap row" style="background-image: url('../images/resto-bar.jpg');">
        
            <div class="overlay"></div>
-        <div class="col-md-8">
+        <div class="col-md-7  mt-md-5">
             <section id="loginForm" >
               <div class="row no-gutters slider-text justify-content-center" id="logindiv" style="margin-top:15%;padding-left:200px;padding-right:300px">
 
@@ -46,10 +51,15 @@
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-white btn-outline-white p-4 py-3" />
                         </div>
                     </div>
-                </div>
-                <p>
+                                       <div class="form-group mt-md-1">
+                        <div class="col-md-offset-2"  >
+                                           <p style="font-weight:bolder;">
                     <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
                 </p>
+                        </div>
+                    </div>
+                </div>
+
                 <p>
                     <%-- Enable this once you have account confirmation enabled for password reset functionality
                     <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
@@ -57,12 +67,14 @@
                 </p>
                   </div>
             </section>
-        </div>
+       
 
-        <div class="col-md-3" style="margin-top:10.5%;color:white">
+
+    </div>
+                 <div class="col-md-4 mt-md-11" style="margin-top:12.5%;color:white">
             <section id="socialLoginForm" style="color:white" >
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
             </section>
         </div>
-    </div>
+            </div>
 </asp:Content>

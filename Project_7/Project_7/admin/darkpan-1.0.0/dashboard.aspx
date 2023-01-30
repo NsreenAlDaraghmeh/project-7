@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
 <title>DarkPan - Bootstrap 5 Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -32,7 +34,9 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
+
 <body>
+ 
     <form id="form1" runat="server">
    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid position-relative d-flex p-0">
@@ -47,8 +51,8 @@
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <nav class="navbar bg-secondary navbar-dark" style="height:353px;">
+                <a href="dashboard.aspx" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Dashboard</h3>
                 </a>
              
@@ -64,10 +68,12 @@
                     </div>--%>
                    <asp:LinkButton  class="nav-item nav-link " ID="Room1" runat="server" OnClick="LinkButton1_Click"><i class="fa fa-th me-2"></i>Room</asp:LinkButton>
                     <a href="check.aspx" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>CheckOut</a>
+                                 <asp:LinkButton  class="nav-item nav-link " ID="users" runat="server" OnClick="LinkButton1_Click"><i class="fa fa-th me-2"></i>Users</asp:LinkButton>
+
                     <a href="../../Default.aspx" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Back to Home</a>
                    <%-- <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>--%>
-                    <div class="nav-item dropdown">
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Sign In</a>
@@ -75,7 +81,7 @@
                             <a href="404.html" class="dropdown-item">404 Error</a>
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
             </nav>
         </div>
@@ -102,7 +108,7 @@
 
                 </div>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="nav-item dropdown">
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Message</span>
@@ -141,8 +147,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all message</a>
                         </div>
-                    </div>
-                    <div class="nav-item dropdown">
+                    </div>--%>
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
@@ -165,22 +171,35 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex" id="AdminName" runat="server">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="../../images/nsreen.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex" id="AdminName" runat="server">Nsreen Al-Daraghmeh</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+<%--                            <a href="..\..\Manage.aspx" class="dropdown-item">My Profile</a>--%>
+<%--                            <a href="#" class="dropdown-item">Log Out</a>--%>
+                              <asp:LoginView runat="server" ViewStateMode="Disabled">
+                      
+                        <LoggedInTemplate>
+                          
+                                    <asp:LoginStatus runat="server" class="dropdown-item" style="color:white;" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+
                         </div>
                     </div>
                 </div>
             </nav>
             
             <!-- Navbar End -->
+
+
+
+
+
 
 
             <!-- Sale & Revenue Start -->
@@ -190,7 +209,7 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-sohaib"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Booking</p>
+                                <span class="mb-2">Booking</span><br />
 <%--                                <h6 class="mb-0">$1234</h6>--%>
                                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                             </div>
@@ -209,8 +228,8 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Customers</p>
+                                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -218,8 +237,8 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Rooms</p>
+                                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -236,9 +255,16 @@
             <div class="container-fluid pt-4 px-4"">
                 <div class="bg-secondary text-center rounded p-4"  style="position:relative;height:100%;">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Booking</h6>
+                        <h6 id="SpanTitle" runat="server" class="mb-0">Booking</h6>
                     </div>
                     <div class="table-responsive">
+
+                        <asp:GridView class="table text-start align-middle table-bordered table-hover mb-0"  ID="GridView3" runat="server" OnRowDataBound="GridView3_RowDataBound"></asp:GridView>
+
+
+
+
+
                         <asp:GridView ID="GridView1"   class="table text-start align-middle table-bordered table-hover mb-0"  runat="server">
                             <Columns>
                                 <asp:HyperLinkField DataNavigateUrlFields="IDbooking" DataNavigateUrlFormatString="dashboard.aspx?cancelid={0}" Text="Cancel" />
@@ -263,11 +289,13 @@
                             PopupControlID="ModalPanel" OkControlID="but" />
                    <asp:Panel ID="ModalPanel" runat="server">
 
-                        <div id="modalTest" class="form-controle" runat="server" style="border: 1px solid black;">
-                            <asp:DetailsView class="table text-start align-middle table-bordered table-hover mb-0" ID="DetailsView2" runat="server" Height="50px" Width="125px"></asp:DetailsView>
+                        <div id="modalTest" class="form-controle" runat="server" style="border: 1px solid black;background-color:#191C24;">
+                            <asp:DetailsView class="table text-start align-middle table-bordered table-hover mb-0" ID="DetailsView2" runat="server" Height="50px" Width="650px"></asp:DetailsView>
                         </div>
                        <asp:Button ID="but" Text="text" runat="server" Style="display:none;" />
                              <asp:Button ID="OKButton" CssClass="btn-primary" runat="server" Text="CheckOut" OnClick="checkout_Click" />
+                             <asp:Button ID="Button3" CssClass="btn-primary" runat="server" Text="Cancel" OnClick="cancleCheckout" />
+
 
                     </asp:Panel>
 <%--                    ------------------------ booking----------------------------------%>
@@ -330,20 +358,20 @@
                     </div>
 <%--                    ----------------------------- Room ---------------------------%>
                     <div id="roomedit" runat="server">
-                         <div class="form-floating mb-3">
+                         <div class="form-floating mb-3" style="height:65px;">
                                 <input runat="server" type="text" class="form-control" id="roomnumber" placeholder="Room Number"/>
                                 <label for="floatingInput">Room Number</label>
                             </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3" style="height:65px;">
                             <textarea  id="discriptionroom" runat="server" class="form-control" cols="20"  rows="3"></textarea>
 <%--                                <input runat="server" type="text" class="form-control" id="Text1" placeholder="Room Number"/>--%>
                                 <label for="floatingInput">DiscriptionRoom</label>
                             </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3" style="height:65px;">
                                 <input runat="server" type="text" class="form-control" id="Quntity" placeholder="Quntity"/>
                                 <label for="floatingInput">Quntity</label>
                             </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3" style="height:65px;">
                                 <input runat="server" type="text" class="form-control" id="price" placeholder="Price"/>
                                 <label for="floatingInput">Price</label>
                             </div>
@@ -414,7 +442,46 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+            <script src="js/main.js"></script>
+            <%-- <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;786c5de60e322c5d&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+             <script>
+                 function pass () { 
+                 const swalWithBootstrapButtons = Swal.mixin({
+                     customClass: {
+                         confirmButton: 'btn btn-success',
+                         cancelButton: 'btn btn-danger'
+                     },
+                     buttonsStyling: false
+                 })
+
+                     swalWithBootstrapButtons.fire({
+                         title: 'Are you sure?',
+                         text: "You won't be able to revert this!",
+                         icon: 'warning',
+                         showCancelButton: true,
+                         confirmButtonText: 'Yes, delete it!',
+                         cancelButtonText: 'No, cancel!',
+                         reverseButtons: true
+                     }).then((result) => {
+                         if (result.isConfirmed) {
+                             swalWithBootstrapButtons.fire(
+                                 'Deleted!',
+                                 'Your file has been deleted.',
+                                 'success'
+                             )
+                         } else if (
+                             /* Read more about handling dismissals below */
+                             result.dismiss === Swal.DismissReason.cancel
+                         ) {
+                             swalWithBootstrapButtons.fire(
+                                 'Cancelled',
+                                 'Your imaginary file is safe :)',
+                                 'error'
+                             )
+                         }
+                     }
+             </script>--%>
     </form>
 </body>
 

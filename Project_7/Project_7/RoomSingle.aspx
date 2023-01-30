@@ -28,7 +28,7 @@ height:90%;
 
         }
     </style>
-     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');">
+     <section class="hero-wrap hero-wrap-2" style="background-image: url('https://cache.marriott.com/content/dam/marriott-renditions/AQJLC/aqjlc-exterior-9703-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1215px:*');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -261,7 +261,7 @@ height:90%;
     <script>
         function button(quantity, donation) {
             Swal.fire({
-                icon: 'warning',
+                icon: 'error',
                 title: 'Please Log in First !',
                 html: '<a href="https://localhost:44348/Account/Login">Log in</a>',
                 //footer: '<a href="">Why do I have this issue?</a>'

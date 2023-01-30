@@ -17,7 +17,7 @@ height:90%;
 
         }
     </style>
- <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');">
+ <section class="hero-wrap hero-wrap-2" style="background-image: url('https://cache.marriott.com/content/dam/marriott-renditions/AQJLC/aqjlc-exterior-9703-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1215px:*');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -29,7 +29,7 @@ height:90%;
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt ftco-booking">
+<%--    <section class="ftco-section ftco-no-pb ftco-no-pt ftco-booking">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -101,7 +101,7 @@ height:90%;
           </div>
         </div>
       </div>
-    </section>
+    </section>--%>
 
   <%--  <section class="ftco-section bg-light">
       <div class="container-xl">

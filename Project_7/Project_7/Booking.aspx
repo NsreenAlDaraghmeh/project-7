@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Booking.aspx.cs" Inherits="Project_7.Booking1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+              <asp:UpdatePanel ID="UpdatePanel1"
 
+         runat="server" UpdateMode="Conditional">
+
+    <ContentTemplate>
    <div id="contain1">
      <section class="hero-wrap hero-wrap-2" style="background-image: url('https://cache.marriott.com/content/dam/marriott-renditions/AQJLC/aqjlc-suite-terrace-4955-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1215px:*');">
       <div class="overlay"></div>
@@ -35,11 +39,7 @@
           <div class="col-md-6">
             <h2 class="mb-5">Reservation Form</h2>
                 
-              <asp:UpdatePanel ID="UpdatePanel1"
-
-         runat="server" UpdateMode="Conditional">
-
-    <ContentTemplate>
+    
 
    
 
@@ -56,6 +56,8 @@
          <asp:Calendar ID="Calendar1"  runat="server" OnSelectionChanged="Calendar1_SelectionChanged" OnDayRender="Calendar2_DayRender" >
                                </asp:Calendar>
                       <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
+                           
+                               &nbsp;<asp:Label ID="Label8" runat="server" ForeColor="Red"></asp:Label>
                            
                           </div>
                       </div>
@@ -79,8 +81,7 @@
         runat="server" ControlToValidate="txtStartDate" ControlToCompare="txtEndDate"
         Operator="LessThan" Type="Date" ErrorMessage="Start date must be less than End date."></asp:CompareValidator>  --%> 
                   </div>
-         </ContentTemplate>
-                    </asp:UpdatePanel> 
+
 
 
                   <div class="row" style="margin-top:10px;" >
@@ -150,9 +151,10 @@
                   <div class="row" style="margin-top:30px;">
                     <div class="col-md-6 form-group">
             <asp:Button ID="Button1" runat="server" Text="Book Now" CssClass="btn btn-primary" OnClick="Button1_Click" />
+                              &nbsp;<asp:Label ID="Label7" runat="server" ForeColor="Red"></asp:Label>          
+
                     </div>
                   </div>
-                
               </div>
               <div class="col-md-1"></div>
               <div class="col-md-5">
@@ -207,7 +209,7 @@
 
     <section id="maiin2" runat="server">
         <div class="container">
-">
+
         <div class="row">
             
             <div class="col-12 mt-4">
@@ -321,8 +323,10 @@
             </div>
         
         </div>
-    </div>
-    </section>
+                </section>
+      
+                 </ContentTemplate>
+                    </asp:UpdatePanel> 
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;786c5de60e322c5d&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

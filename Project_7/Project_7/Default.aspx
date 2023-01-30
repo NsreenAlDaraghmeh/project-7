@@ -78,7 +78,7 @@
 	        			<div class="col-md-12 col-lg d-flex">
 	        				<div class="form-group d-flex border-0">
 	        					<div class="form-field w-100 align-items-center d-flex">
-	        						<a href="#" type="submit" class="d-flex justify-content-center align-items-center align-self-stretch form-control btn btn-primary py-lg-4 py-xl-0"><span>Check Availability</span></a>
+	        						<a href="room.aspx" type="submit" class="d-flex justify-content-center align-items-center align-self-stretch form-control btn btn-primary py-lg-4 py-xl-0"><span> Show Our Rooms </span></a>
 			                <!-- <input type="submit" value="Check Availability" class="align-self-stretch form-control btn btn-primary"> -->
 			              </div>
 		              </div>
@@ -97,7 +97,7 @@
     				<div class="row">
     					<div class="col-md-6">
     						<div class="f-services d-md-flex flex-md-column-reverse">
-    							<div class="img w-100" style="background-image: url(images/f-services.jpg);"></div>
+    							<div class="img w-100" style="background-image: url(https://cache.marriott.com/content/dam/marriott-renditions/AQJLC/aqjlc-superior-suite-4954-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1215px:*);"></div>
     							<div class="text w-100 p-4 text-center mb-md-4">
     								<div class="icon"><span class="flaticon-pillow"></span></div>
     								<h3>Cozy Room</h3>
@@ -507,7 +507,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section bg-light">
+<%--    <section class="ftco-section bg-light">
       <div class="container-xl">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 heading-section text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -562,7 +562,7 @@
           </div>
         </div>
       </div>
-    </section>	
+    </section>	--%>
 
     <section class="ftco-gallery" id="gallery">
     	<div class="container-fluid">

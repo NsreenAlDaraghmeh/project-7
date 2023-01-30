@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
      <meta charset="utf-8">
     <title>DarkPan - Bootstrap 5 Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -47,14 +49,25 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+                <a href="dashboard.aspx" class="navbar-brand mx-4 mb-3">
+
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Dashboard</h3>
                 </a>
-              
+     
                 <div class="navbar-nav w-100">
+       
+                      
                     <a href="dashboard.aspx" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Dashboard</a>
+              
+                  
+               
+                  
                    <a href="dashboard?tab=Room1" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Room</a>
+                     
                     <a href="check.aspx" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>CheckOut</a>
+                     <a href="dashboard.aspx?tab=users" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Users</a>
+                 
+                       <a href="../../Default.aspx" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Back to Home</a>
                    <%-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -62,12 +75,12 @@
                             <a href="typography.html" class="dropdown-item">Typography</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
-                    </div>--%>
-                    <a href="Default.aspx" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Back to Home</a>
+                    </div>
+                    <a href="../../Default.aspx" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Back to Home</a>
                    <%-- <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>--%>
-                    <div class="nav-item dropdown">
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Sign In</a>
@@ -75,7 +88,7 @@
                             <a href="404.html" class="dropdown-item">404 Error</a>
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
             </nav>
         </div>
@@ -96,7 +109,7 @@
                     <input  runat="server" id="searchbox" class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </div>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="nav-item dropdown">
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Message</span>
@@ -134,8 +147,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all message</a>
                         </div>
-                    </div>
-                    <div class="nav-item dropdown">
+                    </div>--%>
+                    <%--<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
@@ -158,16 +171,26 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="../../images/nsreen.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Nsreen Al-Daraghmeh</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+<%--                            <a href="..\..\Manage.aspx" class="dropdown-item">My Profile</a>--%>
+<%--                            <a href="#" class="dropdown-item">Settings</a>--%>
+<%--                            <a href="#" class="dropdown-item">Log Out</a>--%>
+
+                            <asp:LoginView runat="server" ViewStateMode="Disabled">
+                      
+                        <LoggedInTemplate>
+                          
+                                    <asp:LoginStatus runat="server" class="dropdown-item" style="color:white;" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+
                         </div>
                     </div>
                 </div>
@@ -220,10 +243,10 @@
               <div class="container-fluid pt-4 px-4"">
                 <div class="bg-secondary text-center rounded p-4"  style="position:relative;height:100%;">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Booking</h6>
+                        <h6 class="mb-0">Checkout</h6>
                     </div>
                     <div class="table-responsive">
-                        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                         
                                             <asp:GridView ID="GridView1"  class="table text-start align-middle table-bordered table-hover mb-0" runat="server"></asp:GridView>
 
                     </div>
@@ -262,6 +285,43 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+             <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;786c5de60e322c5d&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+             <script>
+                 const swalWithBootstrapButtons = Swal.mixin({
+                     customClass: {
+                         confirmButton: 'btn btn-success',
+                         cancelButton: 'btn btn-danger'
+                     },
+                     buttonsStyling: false
+                 })
+
+                 swalWithBootstrapButtons.fire({
+                     title: 'Are you sure?',
+                     text: "You won't be able to revert this!",
+                     icon: 'warning',
+                     showCancelButton: true,
+                     confirmButtonText: 'Yes, delete it!',
+                     cancelButtonText: 'No, cancel!',
+                     reverseButtons: true
+                 }).then((result) => {
+                     if (result.isConfirmed) {
+                         swalWithBootstrapButtons.fire(
+                             'Deleted!',
+                             'Your file has been deleted.',
+                             'success'
+                         )
+                     } else if (
+                         /* Read more about handling dismissals below */
+                         result.dismiss === Swal.DismissReason.cancel
+                     ) {
+                         swalWithBootstrapButtons.fire(
+                             'Cancelled',
+                             'Your imaginary file is safe :)',
+                             'error'
+                         )
+                     }
+             </script>
     </form>
 </body>
 </html>

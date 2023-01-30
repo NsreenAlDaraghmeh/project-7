@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Profile;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
@@ -184,6 +185,7 @@ namespace Project_7.Account
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            GridView1.Visible= false;
             row2.Visible= false;
             row1.Visible = true;
             string id = Context.User.Identity.GetUserId();
@@ -208,6 +210,8 @@ namespace Project_7.Account
         {
             //var id = Request.QueryString["id"];
             //var id2 = Convert.ToInt32(id);
+            GridView1.Visible = false;
+
             string id = Context.User.Identity.GetUserId();
 
             var record = db.AspNetUsers.Find(id);
@@ -226,6 +230,31 @@ namespace Project_7.Account
 
             db.SaveChanges();
             Response.Redirect("Manage.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            com.Visible= false;
+      
+            row1.Visible= false;
+            row2.Visible = false;
+ 
+            string id = Context.User.Identity.GetUserId();
+            profile.Attributes.Add("style", "height:550px;/*overflow:scroll*/");
+            var pro = from pr in db.Bookings where pr.IDuser == id select pr;
+             
+            GridView1.Attributes.Add("class", "table table-stripped  table-hover tbl");
+
+            
+           GridView1.DataSource= pro.ToList();
+            
+            GridView1.DataBind();
+        
+            
+        }
+        protected void Del(object sender, EventArgs e)
+        {
+
         }
     }
 }
